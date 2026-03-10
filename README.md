@@ -1,7 +1,7 @@
 # 🔐 Vulnerability Assessment & Exploitation in a Simulated Enterprise Network
 
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.4-557C94?style=flat&logo=kalilinux&logoColor=white)
-![Metasploit](https://img.shields.io/badge/Metasploit-Framework_6.x-2596be?style=flat)
+![Metasploit](https://img.shields.io/badge/Metasploit-Framework_6.4.99--dev-2596be?style=flat)
 ![VirtualBox](https://img.shields.io/badge/VirtualBox-7.1.8-183A61?style=flat&logo=virtualbox&logoColor=white)
 ![Metasploitable](https://img.shields.io/badge/Metasploitable-Linux_2.0.0-red?style=flat)
 ![Nmap](https://img.shields.io/badge/Nmap-7.95-blue?style=flat)
@@ -76,7 +76,7 @@ This project simulates a real-world **black-box penetration test** against a vul
 | Setting | Value |
 |---|---|
 | Platform | **VirtualBox 7.1.8** |
-| Network Adapter | Host-Only — vboxnet0 |
+| Network Adapter | Host-Only |
 | Network Subnet | 192.168.56.0/24 |
 | Subnet Mask | 255.255.255.0 |
 | Promiscuous Mode | Allow VMs |
@@ -89,13 +89,13 @@ This project simulates a real-world **black-box penetration test** against a vul
 | Tool | Exact Version | Purpose |
 |---|---|---|
 | **Kali Linux** | 2025.4 | Attacker OS with pre-installed security toolkit |
-| **Metasploit Framework** | 6.x (msfconsole) | Exploit modules, payloads, post-exploitation |
+| **Metasploit Framework** | **6.4.99-dev** | Exploit modules, payloads, post-exploitation |
 | **Metasploitable Linux** | **2.0.0** | Intentionally vulnerable target VM |
 | **VirtualBox** | **7.1.8** | Virtualization platform and isolated lab network |
 | **Nmap** | **7.95** | Port scanning, service detection, OS fingerprinting |
 | **Searchsploit** | Latest | Offline Exploit-DB CVE database search |
-| **Netcat** | 1.x | Reverse shells and manual port testing |
-| **Wireshark** | 4.x | Packet capture and network traffic analysis |
+| **Netcat (nc)** | **1.10-50.1** | Reverse shells and manual port testing |
+| **Wireshark** | **4.6.4** | Packet capture and network traffic analysis |
 | **DVWA** | Latest | Damn Vulnerable Web Application |
 
 ---
@@ -113,7 +113,7 @@ Phase 3 → Vulnerability Identification
           Searchsploit CVE lookup + msfconsole module search
 
 Phase 4 → Exploitation
-          Metasploit Framework 6.x — 3 critical exploits executed
+          Metasploit Framework 6.4.99-dev — 3 critical exploits executed
 
 Phase 5 → Post-Exploitation
           System enumeration | hashdump | persistence | data access
@@ -355,7 +355,7 @@ penetration-testing-lab/
 
 ## 👤 Author
 
-> This project was completed as part of a cybersecurity learning path covering penetration testing fundamentals, vulnerability assessment, and ethical hacking practices using **Kali Linux 2025.4**, **VirtualBox 7.1.8**, and **Metasploitable Linux 2.0.0**.
+> This project was completed as part of a cybersecurity learning path covering penetration testing fundamentals, vulnerability assessment, and ethical hacking practices using **Kali Linux 2025.4**, **VirtualBox 7.1.8**, **Metasploitable Linux 2.0.0**, **Metasploit Framework 6.4.99-dev**, **Nmap 7.95**, **Netcat 1.10-50.1**, and **Wireshark 4.6.4**.
 
 ---
 
