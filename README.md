@@ -4,7 +4,7 @@
 ![Metasploit](https://img.shields.io/badge/Metasploit-Framework_6.x-2596be?style=flat)
 ![VirtualBox](https://img.shields.io/badge/VirtualBox-7.1.8-183A61?style=flat&logo=virtualbox&logoColor=white)
 ![Metasploitable](https://img.shields.io/badge/Metasploitable-Linux_2.0.0-red?style=flat)
-![Nmap](https://img.shields.io/badge/Nmap-7.9x-blue?style=flat)
+![Nmap](https://img.shields.io/badge/Nmap-7.95-blue?style=flat)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=flat)
 ![Type](https://img.shields.io/badge/Type-Lab%20%2F%20Educational-orange?style=flat)
 ![Date](https://img.shields.io/badge/Date-December_2025-lightgrey?style=flat)
@@ -59,19 +59,17 @@ This project simulates a real-world **black-box penetration test** against a vul
 │   │  192.168.56.104  │      │   192.168.56.103     │ │
 │   └──────────────────┘      └──────────────────────┘ │
 │                                                       │
-│   Gateway : 192.168.56.1   (VirtualBox 7.1.8 Host)   │
-│   Unknown : 192.168.56.102 (Out of scope)             │
+│   Gateway : 192.168.56.1  (VirtualBox 7.1.8 Host)    │
 └──────────────────────────────────────────────────────┘
 ```
 
 ### Virtual Machines
 
-| Machine | OS | Exact Version | Role | IP Address | Adapter |
-|---|---|---|---|---|---|
-| Kali Linux | Kali Linux | **2025.4** | Attacker | 192.168.56.104 | NAT + Host-Only |
-| Metasploitable2 | Ubuntu | **Metasploitable Linux 2.0.0** (Kernel 2.6.24-16-server) | Victim / Target | 192.168.56.103 | Host-Only only |
-| VirtualBox Host | Windows/Linux | — | Gateway | 192.168.56.1 | Host-Only gateway |
-| Unknown Host | — | — | Out of Scope | 192.168.56.102 | — |
+| Machine | OS | Exact Version | Role | IP Address | MAC Address | Adapter |
+|---|---|---|---|---|---|---|
+| Kali Linux | Kali Linux | **2025.4** | Attacker | 192.168.56.104 | (local — not shown) | NAT + Host-Only |
+| Metasploitable2 | Ubuntu | **Metasploitable Linux 2.0.0** (Kernel 2.6.24-16-server) | Victim / Target | 192.168.56.103 | 08:00:27:62:FC:BB | Host-Only only |
+| VirtualBox Host | Windows/Linux | — | Gateway | 192.168.56.1 | 08:00:27:9D:89:B3 | Host-Only gateway |
 
 ### Hypervisor Configuration
 
@@ -94,7 +92,7 @@ This project simulates a real-world **black-box penetration test** against a vul
 | **Metasploit Framework** | 6.x (msfconsole) | Exploit modules, payloads, post-exploitation |
 | **Metasploitable Linux** | **2.0.0** | Intentionally vulnerable target VM |
 | **VirtualBox** | **7.1.8** | Virtualization platform and isolated lab network |
-| **Nmap** | 7.9x | Port scanning, service detection, OS fingerprinting |
+| **Nmap** | **7.95** | Port scanning, service detection, OS fingerprinting |
 | **Searchsploit** | Latest | Offline Exploit-DB CVE database search |
 | **Netcat** | 1.x | Reverse shells and manual port testing |
 | **Wireshark** | 4.x | Packet capture and network traffic analysis |
@@ -133,14 +131,33 @@ Phase 6 → Reporting
 nmap -sn 192.168.56.0/24
 ```
 
-**Hosts Discovered:**
+**Hosts Discovered — Actual Nmap Output:**
 
-| IP | Status | Identified As | In Scope |
-|---|---|---|---|
-| 192.168.56.1 | Live | VirtualBox 7.1.8 Gateway | ❌ No |
-| 192.168.56.102 | Live | Unknown — no services found, excluded | ❌ No |
-| 192.168.56.103 | Live | ✅ Metasploitable Linux 2.0.0 | ✅ Yes |
-| 192.168.56.104 | Live | Kali Linux 2025.4 (Attacker) | ❌ No |
+```
+nmap -sn 192.168.56.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-10 04:55 EDT
+
+Nmap scan report for 192.168.56.1
+Host is up (0.00058s latency).
+MAC Address: 08:00:27:9D:89:B3 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap scan report for 192.168.56.103
+Host is up (0.0064s latency).
+MAC Address: 08:00:27:62:FC:BB (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap scan report for 192.168.56.104
+Host is up.
+
+Nmap done: 256 IP addresses (3 hosts up) scanned in 15.69 seconds
+```
+
+**Hosts Summary:**
+
+| IP | Latency | MAC Address | Identified As | In Scope |
+|---|---|---|---|---|
+| 192.168.56.1 | 0.00058s | 08:00:27:9D:89:B3 | VirtualBox 7.1.8 Gateway | ❌ No |
+| 192.168.56.103 | 0.0064s | 08:00:27:62:FC:BB | ✅ Metasploitable Linux 2.0.0 | ✅ Yes |
+| 192.168.56.104 | — | (local machine) | Kali Linux 2025.4 — Attacker | ❌ No |
 
 ### Full Port & Service Scan
 ```bash
@@ -309,7 +326,7 @@ penetration-testing-lab/
 │   └── pentest_clean_report.docx     ← Full detailed report (December 2025)
 │
 └── screenshots/
-    ├── 01_nmap_host_discovery.png    ← 4 hosts: .1, .102, .103, .104
+    ├── 01_nmap_host_discovery.png    ← 3 hosts: .1 (gateway), .103 (target), .104 (kali)
     ├── 02_nmap_full_scan.png         ← All open ports on 192.168.56.103
     ├── 03_searchsploit_results.png   ← CVE matches for vsftpd, Samba, IRC
     ├── 04_msfconsole_search.png      ← Module search results
