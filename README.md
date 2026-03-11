@@ -139,7 +139,7 @@ Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-10 04:55 EDT
 
 Nmap scan report for 192.168.56.1
 Host is up (0.00058s latency).
-MAC Address: 08:00:27:9D:89:B3 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+MAC Address: 08:00:27:E4:81:56 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 
 Nmap scan report for 192.168.56.103
 Host is up (0.0064s latency).
@@ -155,7 +155,7 @@ Nmap done: 256 IP addresses (3 hosts up) scanned in 15.69 seconds
 
 | IP | Latency | MAC Address | Identified As | In Scope |
 |---|---|---|---|---|
-| 192.168.56.1 | 0.00058s | 08:00:27:9D:89:B3 | VirtualBox 7.1.8 Gateway | ❌ No |
+| 192.168.56.1 | 0.00058s | 08:00:27:E4:81:56 | VirtualBox 7.1.8 Gateway | ❌ No |
 | 192.168.56.103 | 0.0064s | 08:00:27:62:FC:BB | ✅ Metasploitable Linux 2.0.0 | ✅ Yes |
 | 192.168.56.104 | — | (local machine) | Kali Linux 2025.4 — Attacker | ❌ No |
 
