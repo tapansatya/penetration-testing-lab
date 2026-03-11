@@ -69,7 +69,7 @@ This project simulates a real-world **black-box penetration test** against a vul
 |---|---|---|---|---|---|---|
 | Kali Linux | Kali Linux | **2025.4** | Attacker | 192.168.56.104 | (local — not shown) | NAT + Host-Only |
 | Metasploitable2 | Ubuntu | **Metasploitable Linux 2.0.0** (Kernel 2.6.24-16-server) | Victim / Target | 192.168.56.103 | 08:00:27:62:FC:BB | Host-Only only |
-| VirtualBox Host | Windows/Linux | — | Gateway | 192.168.56.1 | 08:00:27:9D:89:B3 | Host-Only gateway |
+| VirtualBox Host | Windows/Linux | — | Gateway | 192.168.56.1 | 08:00:27:E4:81:56 | Host-Only gateway |
 
 ### Hypervisor Configuration
 
