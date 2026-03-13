@@ -1,3 +1,5 @@
+![penetration-testing-lab Banner](./pentest_lab_banner.svg)
+
 # 🔐 Vulnerability Assessment & Exploitation in a Simulated Enterprise Network
 
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-2025.4-557C94?style=flat&logo=kalilinux&logoColor=white)
